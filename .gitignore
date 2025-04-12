@@ -40,3 +40,5 @@ ConsoleApplication/ConsoleApplication/obj/Debug/net8.0/ConsoleApplication.Global
 ConsoleApplication/ConsoleApplication/obj/project.assets.json
 
 ConsoleApplication/ConsoleApplication/obj/project.nuget.cache
+
+*.bin
