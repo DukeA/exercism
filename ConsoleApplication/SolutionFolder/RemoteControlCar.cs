@@ -2,8 +2,10 @@
 
 internal class RemoteControlCar
 {
-
     private double _distanceDriven;
+    private double _batteryLevel = 100.0;
+    private const double DistancePerDrive = 20.0;
+    private const double BatteryDrainPerDrive = 1.0;
 
     public static RemoteControlCar Buy() => new RemoteControlCar();
 
@@ -11,11 +13,20 @@ internal class RemoteControlCar
 
     public string BatteryDisplay()
     {
-        throw new NotImplementedException("Please implement the RemoteControlCar.BatteryDisplay() method");
+        if (_batteryLevel <= 0)
+        {
+            return "Battery empty";
+        }
+        return $"Battery at {Math.Max(0, Math.Round(_batteryLevel, 2))}%";
     }
 
     public void Drive()
     {
-        throw new NotImplementedException("Please implement the RemoteControlCar.Drive() method");
+        if (_batteryLevel <= 0)
+        {
+            return;
+        }
+        _distanceDriven += DistancePerDrive;
+        _batteryLevel -= BatteryDrainPerDrive;
     }
 }
